@@ -3,15 +3,16 @@ CC      := gcc
 CFLAGS  := -g -O2 -Wall -Wextra
 LDFLAGS := -g
 
-PROGS := hello strings counting pointers concepts
+PROGS := hello args strings counting pointers concepts
 HELLO_OBJS := hello.o
+ARGS_OBJS := args.o
 STRINGS_OBJS := strings.o
 COUNTING_OBJS := counting.o
 POINTERS_OBJS := pointers.o
 CONCEPTS_OBJS := concepts.o
 
-OBJS := ${HELLO_OBJS} ${STRINGS_OBJS} ${COUNTING_OBJS} \
-        ${POINTERS_OBJS} ${CONCEPTS_OBJS}
+OBJS := ${HELLO_OBJS} ${ARGS_OBJS} ${STRINGS_OBJS} \
+        ${COUNTING_OBJS} ${POINTERS_OBJS} ${CONCEPTS_OBJS}
 
 %.o: %.c
 	${CC} -c ${CFLAGS} -o $@ $<
@@ -19,6 +20,9 @@ OBJS := ${HELLO_OBJS} ${STRINGS_OBJS} ${COUNTING_OBJS} \
 all: ${PROGS}
 
 hello: ${HELLO_OBJS}
+	${CC} ${LDFLAGS} -o $@ $^
+
+args: ${ARGS_OBJS}
 	${CC} ${LDFLAGS} -o $@ $^
 
 strings: ${STRINGS_OBJS}
