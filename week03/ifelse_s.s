@@ -2,8 +2,8 @@
 
 # int ifelse_c(int val);
 #
-# a0 - val    (argument)
-# t0 - retval
+# a0 - int val (argument)
+# t0 - int retval
 
 ifelse_s:
     # if (val > 0) {
