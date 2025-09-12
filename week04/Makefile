@@ -1,12 +1,12 @@
-PROGS = arr call #add4f inrange factrec
+PROGS = arr call add4f factrec #inrange
 ARR_OBJS = arr.o arr_c.o arr_s.o
 CALL_OBJS = call.o call_c.o call_s.o
-#ADD4F_OBJS = add4f.o add4f_c.o add4f_s.o add4f_callee_s.o
+ADD4F_OBJS = add4f.o add4f_c.o add4f_s.o #add4f_callee_s.o
 #INRANGE_OBJS = inrange.o inrange_c.o inrange_s.o
-#FACTREC_OBJS = factrec.o factrec_c.o factrec_s.o
+FACTREC_OBJS = factrec.o factrec_c.o factrec_s.o
 
-OBJS = ${ARR_OBJS} ${CALL_OBJS} #${ADD4F_OBJS} \
-       #${INRANGE_OBJS} ${FACTREC_OBJS}
+OBJS = ${ARR_OBJS} ${CALL_OBJS} ${ADD4F_OBJS} \
+       ${FACTREC_OBJS} #${INRANGE_OBJS} ${FACTREC_OBJS}
 
 %.o: %.s
 	as -g -o $@ $<

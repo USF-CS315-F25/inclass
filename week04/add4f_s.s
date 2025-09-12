@@ -13,7 +13,7 @@ add2_s:
 #
 # t0 - int tmp0
 
-# We use a caller-saved register approach.
+# We use a caller-saved registers approach.
 # This means that before we make a call,
 # we save any caller-saved registers we need
 # to preserve on the stack (a0-a7,t0-t6),
@@ -30,16 +30,14 @@ add4f_s:
 
     call add2_s         # add2_c(a, b)
 
-    mv t0, a0           # t0 = a0 (result of add2_c(a, b))
-
+    sd a0, 24(sp)       # Put a0 (tmp0) on stack
     ld a0, 8(sp)        # Restore a2 from stack into a0
     ld a1, 16(sp)       # Restore a3 from stack into a1
-    sd t0, 8(sp)        # Preserve t0 on stack
 
     call add2_s         # add2_c(c, d)
 
     mv a1, a0           # a1 (tmp1) = a0
-    ld a0, 8(sp)        # a0 = tmp0 from stack
+    ld a0, 24(sp)       # a0 = tmp0 from stack
 
     call add2_s         # add2_c(tmp0, tmp1)
 
