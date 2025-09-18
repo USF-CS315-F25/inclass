@@ -10,9 +10,9 @@
 # 12 : uint32_t value2
 
 struct_s:
-    lwu a0, 4(a0) # a0 = a0->value1
+    lwu a0, 4(a0)
     ret
 
 struct_b_s:
-    lbu a0, 8(a0)  # a0 = a0->b
+    lbu a0, 8(a0)
     ret
