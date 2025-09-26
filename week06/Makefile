@@ -4,6 +4,9 @@ SHIFTS_OBJS = shifts.o
 DECODE_OBJS = decode.o add2_s.o
 RV_EMU_OBJS = rv_emu.o add2_c.o add2_s.o
 
+OBJS = ${SHIFTS_OBJS} ${DECODE_OBJS} ${RV_EMU_OBJS}
+
+
 %.o: %.s
 	as -g -o $@ $<
 
