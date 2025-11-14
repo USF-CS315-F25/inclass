@@ -1,0 +1,7 @@
+ADDI
+ADDR
+JAL_
+JALR
+MUL_
+SUB_
+UNIM
